@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fake News Exterminator</string>
+    <string name="instructions">"
+        <![CDATA[1.Clear default browser: Settings->Applications->[Name of your browser]->Clear Defaults or Settings->Applications->[Name of your browser]->Advanced Options -> Clear Defaults. \n
+        2. Open http or https link from your phone and set Fake News Exterminator as default web browser. \n
+        3. Change settings of your applications(Facebook,GMail etc.) to open links outside the application. ]]>"</string>
 </resources>
