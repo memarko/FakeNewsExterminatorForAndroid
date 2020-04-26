@@ -83,10 +83,16 @@ class OverlayShowingService : Service(), OnTouchListener, View.OnClickListener {
                     if(response.code() == 200) {
                         val mapper = jacksonObjectMapper()
                         var articles = mapper.readValue<HoaxResult>(response?.body()?.string()!!)
-                        if (articles.num_of_entries != null && articles.num_of_entries!! > 0)
+                        if (articles.num_of_entries != null && articles.num_of_entries!! > 0) {
                             handler.post {
                                 showFake()
                             }
+                        } else
+                        {
+                            handler.post {
+                                stopSelf()
+                            }
+                        }
                     }
                     else
                     {
@@ -183,7 +189,7 @@ class OverlayShowingService : Service(), OnTouchListener, View.OnClickListener {
         super.onDestroy()
         if (overlayedButton != null) {
             wm!!.removeView(overlayedButton)
-   //         wm!!.removeView(topLeftView)
+            wm!!.removeView(topLeftView)
             overlayedButton = null
             topLeftView = null
         }
